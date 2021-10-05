@@ -4,6 +4,37 @@ body {
   background-color: $blue-minus-2;
 }
 
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+  display: block;
+  height: 56px;
+  min-width: 180px;
+  background-color: $blue-plus-1;
+  border-radius: 8px;
+  color: $white;
+  font-weight: bold;
+}
+
+textarea {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  min-height: 480px;
+  border: 1px solid #DDE8E8;
+  border-radius: 4px;
+  padding: 20px;
+  margin-bottom: 32px;
+  &:focus {
+    outline: none;
+    border: 1px solid $blue-plus-1;
+  }
+}
+
 .board__wrap {
   max-width: 800px;
   margin: 0 auto;
@@ -12,7 +43,16 @@ body {
 .board__inner {
   width: 100%;
   display: flex;
+  justify-content: space-between;
   .board__item {
     width: calc((100% - 40px)/2);
   }
+  form {
+    width: 100%;
+  }
+  button {
+    margin: 0 auto;
+  }
 }
+
+
