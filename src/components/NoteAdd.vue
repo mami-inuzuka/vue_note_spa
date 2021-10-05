@@ -18,6 +18,7 @@
     methods: {
       addNote: function () {
         this.$store.dispatch('addNote', { noteText: this.noteText })
+        this.noteText = ""
       }
     }
   }
