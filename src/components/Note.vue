@@ -1,6 +1,6 @@
 <template>
   <div class="note__list">
-    {{ noteText }}
+    {{ noteTitle }}
   </div>
 </template>
 
@@ -10,6 +10,12 @@ export default {
     noteText: {
       type: String,
       required: true
+    }
+  },
+  computed: {
+    noteTitle: function() {
+      const noteTextArray = this.noteText.split(/\n/)
+      return noteTextArray[0]
     }
   }
 }
