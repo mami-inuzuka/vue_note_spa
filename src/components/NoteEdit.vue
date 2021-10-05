@@ -2,7 +2,6 @@
   <form @submit.prevent="updateNote">
     <textarea v-model="textToEdit" type="text"></textarea>
     <button type="submit">更新</button>
-    <a @click="kakunin">kakunin</a>
   </form>
 
 </template>
@@ -16,14 +15,12 @@ export default {
     }
   },
   methods: {
-    kakunin: function() {
-      console.log(this.textToEdit)
-    },
     updateNote: function() {
       this.$store.dispatch('updateNote', {
         noteIndex: this.noteIndex,
         noteText: this.textToEdit
       })
+      this.$emit('endedUpdateNote')
     }
   },
   computed: {

@@ -13,7 +13,7 @@
       </div>
       <div class="board__item">
         <div class="edit" v-if="isEditing">
-          <note-edit :noteIndex="noteIndex" />
+          <note-edit :noteIndex="noteIndex" @endedUpdateNote="finishEditing" />
         </div>
         <div class="add" v-else>
           <note-add />
@@ -37,6 +37,7 @@ export default {
   },
   data: function() {
     return {
+      isAdding: false,
       isEditing: false,
       noteIndex: 0,
       noteId: 0
@@ -46,6 +47,9 @@ export default {
     startEditing: function(noteIndex) {
       this.isEditing = true
       this.noteIndex = noteIndex
+    },
+    finishEditing: function() {
+      this.isEditing = false
     }
   },
   computed: {
