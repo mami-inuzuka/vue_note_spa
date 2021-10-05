@@ -14,14 +14,18 @@ const store = new Vuex.Store({
     addNote (state, payload) {
       const id = new Date().getTime().toString()
       state.noteList.push({ noteText: payload.noteText, id: id })
+    },
+    updateNote (state, payload) {
+      Vue.set(state.noteList[payload.noteIndex], state.noteText, payload.textToEdit)
     }
   },
   actions: {
     addNote (context, payload) {
       context.commit('addNote', payload)
+    },
+    updateNote (context, payload) {
+      context.commit('updateNote', payload)
     }
-  },
-  modules: {
   }
 })
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="note__list">
+  <div class="note__list" @click="editNote">
     {{ noteTitle }}
   </div>
 </template>
@@ -8,8 +8,15 @@
 export default {
   props: {
     noteText: {
-      type: String,
       required: true
+    },
+    noteIndex: {
+      required: true
+    }
+  },
+  methods: {
+    editNote: function() {
+      this.$emit('getEditingIndex', this.noteIndex)
     }
   },
   computed: {
