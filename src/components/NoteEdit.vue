@@ -1,7 +1,8 @@
 <template>
-  <form @submit.prevent="updateNote">
+  <form>
     <textarea v-model="textToEdit" type="text"></textarea>
-    <button type="submit">更新</button>
+    <button type="button" @click="updateNote">更新</button>
+    <button type="button" @click="deleteNote">削除</button>
   </form>
 
 </template>
@@ -19,6 +20,12 @@ export default {
       this.$store.dispatch('updateNote', {
         noteIndex: this.noteIndex,
         noteText: this.textToEdit
+      })
+      this.$emit('endedUpdateNote')
+    },
+    deleteNote: function() {
+      this.$store.dispatch('deleteNote', {
+        noteIndex: this.noteIndex
       })
       this.$emit('endedUpdateNote')
     }

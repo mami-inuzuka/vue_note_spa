@@ -17,6 +17,9 @@ const store = new Vuex.Store({
     },
     updateNote (state, payload) {
       Vue.set(state.noteList[payload.noteIndex], state.noteText, payload.textToEdit)
+    },
+    deleteNote (state, payload) {
+      state.noteList.splice(payload.noteIndex, 1)
     }
   },
   actions: {
@@ -25,6 +28,9 @@ const store = new Vuex.Store({
     },
     updateNote (context, payload) {
       context.commit('updateNote', payload)
+    },
+    deleteNote (context, payload) {
+      context.commit('deleteNote', payload)
     }
   }
 })
