@@ -3,9 +3,12 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
+const localStorage = window.localStorage
+const savedNoteList = localStorage.getItem('note-list')
+
+const store = new Vuex.Store({
   state: {
-    noteList: []
+    noteList: savedNoteList ? JSON.parse(savedNoteList) : []
   },
   mutations: {
     addNote (state, payload) {
@@ -21,3 +24,9 @@ export default new Vuex.Store({
   modules: {
   }
 })
+
+store.subscribe((mutation, state) => {
+  localStorage.setItem('note-list', JSON.stringify(state.noteList))
+})
+
+export default store
