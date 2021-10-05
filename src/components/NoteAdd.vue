@@ -1,9 +1,9 @@
 <template>
   <form @submit.prevent="addNote">
-    <input v-model="noteText"
+    <textarea v-model="noteText"
       type="text"
       placeholder="メモの内容を入力"
-    >
+    ></textarea>
     <button type="submit">新規追加</button>
   </form>
 </template>

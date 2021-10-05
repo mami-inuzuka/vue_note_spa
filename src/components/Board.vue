@@ -7,10 +7,9 @@
           :noteText="item.noteText"
           :key="item.id"
         />
-        <note-add />
       </div>
       <div class="board__item">
-        <note-edit />
+        <note-add />
       </div>
     </div>
   </div>
@@ -20,13 +19,11 @@
 import { mapState } from 'vuex'
 import NoteAdd from './NoteAdd.vue'
 import Note from './Note.vue'
-import NoteEdit from './NoteEdit.vue'
 
 export default {
   components: {
     NoteAdd,
-    Note,
-    NoteEdit
+    Note
   },
   computed: {
     ...mapState(['noteList'])

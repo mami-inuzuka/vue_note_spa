@@ -8,3 +8,11 @@ body {
   max-width: 800px;
   margin: 0 auto;
 }
+
+.board__inner {
+  width: 100%;
+  display: flex;
+  .board__item {
+    width: calc((100% - 40px)/2);
+  }
+}
