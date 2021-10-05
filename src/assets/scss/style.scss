@@ -1,0 +1,10 @@
+@import 'variables';
+
+body {
+  background-color: $blue-minus-2;
+}
+
+.board__wrap {
+  max-width: 800px;
+  margin: 0 auto;
+}
