@@ -1,8 +1,10 @@
 <template>
   <form>
     <textarea v-model="textToEdit" type="text"></textarea>
-    <button type="button" @click="updateNote">更新</button>
-    <button type="button" @click="deleteNote">削除</button>
+    <div class="button__wrap">
+      <button type="button" @click="updateNote">更新</button>
+      <button type="button" @click="deleteNote" class="button--danger">削除</button>
+    </div>
   </form>
 
 </template>
