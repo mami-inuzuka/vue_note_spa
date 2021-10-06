@@ -12,7 +12,7 @@ const store = new Vuex.Store({
   },
   mutations: {
     addNote (state, payload) {
-      const id = new Date().getTime().toString()
+      const id = new Date().getTime()
       state.noteList.push({ noteText: payload.noteText, id: id })
     },
     updateNote (state, payload) {
