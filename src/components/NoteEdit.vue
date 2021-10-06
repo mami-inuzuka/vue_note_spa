@@ -2,9 +2,10 @@
   <form>
     <textarea v-model="textToEdit" type="text"></textarea>
     <div class="button__wrap">
-      <button type="button" @click="updateNote" :disabled="isButtonDisabled">更新</button>
-      <button type="button" @click="deleteNote" class="button--danger">削除</button>
+      <button type="button" @click="updateNote" :disabled="isButtonDisabled">更新する</button>
+      <button type="button" @click="deleteNote" class="button--danger">削除する</button>
     </div>
+    <button type="button" @click="cancelEdit" class="button--default">編集をキャンセルする</button>
   </form>
 </template>
 
@@ -19,6 +20,9 @@ export default {
     }
   },
   methods: {
+    cancelEdit: function() {
+      this.$emit('endedUpdateNote')
+    },
     deleteNote: function() {
       this.$store.dispatch('deleteNote', {
         noteIndex: this.noteIndex
