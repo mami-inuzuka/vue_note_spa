@@ -16,7 +16,7 @@
           <note-edit :noteIndex="noteIndex" @endedUpdateNote="finishEditing" />
         </div>
         <div class="add" v-if="isAdding">
-          <note-add @noteAdded = "finishAdding" />
+          <note-add @noteAdded="finishAdding" />
         </div>
       </div>
     </div>
