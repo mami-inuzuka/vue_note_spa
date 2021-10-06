@@ -2,7 +2,7 @@
   <form>
     <textarea v-model="textToEdit" type="text"></textarea>
     <div class="button__wrap">
-      <button type="button" @click="updateNote">更新</button>
+      <button type="button" @click="updateNote" :disabled="isButtonDisabled">更新</button>
       <button type="button" @click="deleteNote" class="button--danger">削除</button>
     </div>
   </form>
@@ -39,6 +39,9 @@ export default {
       set: function(value) {
         this.$store.state.noteList[this.noteIndex].noteText = value
       }
+    },
+    isButtonDisabled: function() {
+      return this.textToEdit.length === 0
     }
   }
 }

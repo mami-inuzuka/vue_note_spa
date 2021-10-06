@@ -4,7 +4,7 @@
       type="text"
       placeholder="メモの内容を入力"
     ></textarea>
-    <button type="submit">メモを保存する</button>
+    <button type="submit" :disabled="isButtonDisabled">メモを保存する</button>
   </form>
 </template>
 
@@ -20,6 +20,11 @@
         this.$store.dispatch('addNote', { noteText: this.noteText })
         this.noteText = ""
         this.$emit('noteAdded')
+      }
+    },
+    computed: {
+      isButtonDisabled: function() {
+        return this.noteText.length === 0
       }
     }
   }
