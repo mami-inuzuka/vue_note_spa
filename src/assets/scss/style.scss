@@ -77,11 +77,19 @@ textarea {
 }
 
 .edit {
+  position: relative;
   .button__wrap {
     display: flex;
     justify-content: space-between;
     button {
       margin: 0;
     }
+  }
+  &:before {
+    content: "メモを編集中です...";
+    position: absolute;
+    color: $blue-plus-1;
+    font-size: 12px;
+    top: -24px;
   }
 }

@@ -6,7 +6,6 @@
       <button type="button" @click="deleteNote" class="button--danger">削除</button>
     </div>
   </form>
-
 </template>
 
 <script>
