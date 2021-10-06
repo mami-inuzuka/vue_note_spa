@@ -6,7 +6,6 @@
         <note v-for="(item, index) in noteList"
           :noteText="item.noteText"
           :key="item.id"
-          :noteId="item.id"
           :noteIndex="index"
           @getEditingIndex="startEditing"
         />
@@ -26,14 +25,14 @@
 
 <script>
 import { mapState } from 'vuex'
-import NoteAdd from './NoteAdd.vue'
 import Note from './Note.vue'
+import NoteAdd from './NoteAdd.vue'
 import NoteEdit from './NoteEdit.vue'
 
 export default {
   components: {
-    NoteAdd,
     Note,
+    NoteAdd,
     NoteEdit
   },
   data: function() {
@@ -45,6 +44,13 @@ export default {
     }
   },
   methods: {
+    startAdding: function() {
+      this.isEditing = false
+      this.isAdding = true
+    },
+    finishAdding: function() {
+      this.isAdding = false
+    },
     startEditing: function(noteIndex) {
       this.isEditing = true
       this.isAdding = false
@@ -52,13 +58,6 @@ export default {
     },
     finishEditing: function() {
       this.isEditing = false
-    },
-    startAdding: function() {
-      this.isEditing = false
-      this.isAdding = true
-    },
-    finishAdding: function() {
-      this.isAdding = false
     }
   },
   computed: {
