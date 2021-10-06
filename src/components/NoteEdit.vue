@@ -9,6 +9,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   props: {
     noteIndex: {
@@ -34,15 +36,16 @@ export default {
   computed: {
     textToEdit: {
       get: function() {
-        return this.$store.state.noteList[this.noteIndex].noteText
+        return this.noteList[this.noteIndex].noteText
       },
       set: function(value) {
-        this.$store.state.noteList[this.noteIndex].noteText = value
+        this.noteList[this.noteIndex].noteText = value
       }
     },
     isButtonDisabled: function() {
       return this.textToEdit.length === 0
-    }
+    },
+    ...mapState(['noteList'])
   }
 }
 </script>
