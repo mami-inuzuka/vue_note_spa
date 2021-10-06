@@ -7,12 +7,12 @@
 <script>
 export default {
   props: {
-    noteText: {
-      type: String,
-      required: true
-    },
     noteIndex: {
       type: Number,
+      required: true
+    },
+    noteText: {
+      type: String,
       required: true
     }
   },

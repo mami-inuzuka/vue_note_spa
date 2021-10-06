@@ -19,16 +19,16 @@ export default {
     }
   },
   methods: {
+    deleteNote: function() {
+      this.$store.dispatch('deleteNote', {
+        noteIndex: this.noteIndex
+      })
+      this.$emit('endedUpdateNote')
+    },
     updateNote: function() {
       this.$store.dispatch('updateNote', {
         noteIndex: this.noteIndex,
         noteText: this.textToEdit
-      })
-      this.$emit('endedUpdateNote')
-    },
-    deleteNote: function() {
-      this.$store.dispatch('deleteNote', {
-        noteIndex: this.noteIndex
       })
       this.$emit('endedUpdateNote')
     }
