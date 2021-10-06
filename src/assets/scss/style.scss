@@ -28,6 +28,29 @@ button {
   background-color: $red;
 }
 
+.button__new {
+  display: block;
+  width: 100%;
+  background-color: #E6F3F3;
+  color: $blue-plus-1;
+  position: relative;
+  &:before {
+    content: "";
+    display: block;
+    width: 31px;
+    height: 31px;
+    background-image: url(../images/icon-new.svg);
+    position: absolute;
+    left: 14px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+  }
+  &.hidden {
+    display: none;
+  }
+}
+
 textarea {
   box-sizing: border-box;
   display: block;

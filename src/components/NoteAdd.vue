@@ -4,7 +4,7 @@
       type="text"
       placeholder="メモの内容を入力"
     ></textarea>
-    <button type="submit">新規追加</button>
+    <button type="submit">メモを保存する</button>
   </form>
 </template>
 
@@ -19,6 +19,7 @@
       addNote: function () {
         this.$store.dispatch('addNote', { noteText: this.noteText })
         this.noteText = ""
+        this.$emit('noteAdded')
       }
     }
   }

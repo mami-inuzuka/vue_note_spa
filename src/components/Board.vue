@@ -10,13 +10,14 @@
           :noteIndex="index"
           @getEditingIndex="startEditing"
         />
+        <button @click="startAdding" :class="buttonNewClass">新しいメモを作成</button>
       </div>
       <div class="board__item">
         <div class="edit" v-if="isEditing">
           <note-edit :noteIndex="noteIndex" @endedUpdateNote="finishEditing" />
         </div>
-        <div class="add" v-else>
-          <note-add />
+        <div class="add" v-if="isAdding">
+          <note-add @noteAdded = "finishAdding" />
         </div>
       </div>
     </div>
@@ -46,13 +47,28 @@ export default {
   methods: {
     startEditing: function(noteIndex) {
       this.isEditing = true
+      this.isAdding = false
       this.noteIndex = noteIndex
     },
     finishEditing: function() {
       this.isEditing = false
+    },
+    startAdding: function() {
+      this.isEditing = false
+      this.isAdding = true
+    },
+    finishAdding: function() {
+      this.isAdding = false
     }
   },
   computed: {
+    buttonNewClass: function() {
+      const buttonNewClass = ['button__new']
+      if(this.isAdding) {
+        buttonNewClass.push(['hidden'])
+      }
+      return buttonNewClass
+    },
     ...mapState(['noteList'])
   }
 }
