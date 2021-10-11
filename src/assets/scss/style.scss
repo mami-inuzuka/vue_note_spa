@@ -1,0 +1,131 @@
+@import 'variables';
+
+body {
+  background-color: $blue-minus-2;
+}
+
+h1 {
+  color: $blue-plus-1;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 56px;
+  min-width: 180px;
+  background-color: $blue-plus-1;
+  border-radius: 8px;
+  color: $white;
+  font-weight: bold;
+  &:disabled {
+    background-color: $gray-minus-1;
+    color: $gray;
+  }
+}
+
+.button--danger {
+  background-color: $red;
+}
+
+.button--default {
+  background-color: $blue-minus-2;
+  color: $blue-plus-1;
+  border: 1px solid $blue-plus-1;
+}
+
+.button__new {
+  display: block;
+  width: 100%;
+  background-color: #E6F3F3;
+  color: $blue-plus-1;
+  position: relative;
+  &:before {
+    content: "";
+    display: block;
+    width: 31px;
+    height: 31px;
+    background-image: url(../images/icon-new.svg);
+    position: absolute;
+    left: 14px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+  }
+  &.hidden {
+    display: none;
+  }
+}
+
+textarea {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  min-height: 380px;
+  border: 1px solid #DDE8E8;
+  border-radius: 4px;
+  padding: 20px;
+  margin-bottom: 20px;
+  &:focus {
+    outline: none;
+    border: 1px solid $blue-plus-1;
+  }
+}
+
+.board__wrap {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.board__inner {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  .board__item {
+    width: calc((100% - 40px)/2);
+  }
+  form {
+    width: 100%;
+  }
+  button {
+    margin: 0 auto;
+  }
+}
+
+.note__list {
+  background-color: $white;
+  padding: 20px 32px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  box-shadow: 0px 3px 28px rgba(79, 119, 121, 0.05);
+  transition: all 0.3s ease;
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0px 20px 28px rgb(79 119 121 / 5%);
+  }
+}
+
+.edit {
+  position: relative;
+  .button__wrap {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    button {
+      width: calc((100% - 20px)/2);
+      margin: 0;
+    }
+  }
+  &:before {
+    content: "メモを編集中です...";
+    position: absolute;
+    color: $blue-plus-1;
+    font-size: 12px;
+    top: -24px;
+  }
+}
